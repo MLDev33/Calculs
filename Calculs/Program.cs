@@ -19,7 +19,10 @@ namespace Calculs
             int choix; // saisie du choix de l'utilsiateur
             bool correct = false;
 
-            // boucle sur le menu
+            // Création des deux nombres aléatoires
+            val1 = rand.Next(1, 10);
+            val2 = rand.Next(1, 10);
+
             choix = 1;
             while (choix != 0)
             {
@@ -42,37 +45,17 @@ namespace Calculs
                     }
                 }
                 // traitement des choix
-                //if (choix != 0)
-                //{
-                    if (choix == 0)
-                    {
-
-                    }
-
-                    else if (choix == 1)
+                if (choix != 0)
+                {
+                    if (choix == 1)
                     {
                         // choix de l'addition
-                        val1 = rand.Next(1, 10);
-                        val2 = rand.Next(1, 10);
 
-                        correct = false;
-                        while(!correct)
-                        {
-                            try 
-                            {
-                                // saisie de la réponse
-                                Console.Write(val1 + " + " + val2 + " = ");
-                                reponse = int.Parse(Console.ReadLine());
-                                correct = true;
-                            }
-                            catch
-                            {
-                            Console.WriteLine("Erreur de saisie veuillez saisir un nombre entier");
-                            }
-                        }
-
-
-
+                        // saisie de la réponse
+                        Console.Write(val1 + " + " + val2 + " = ");
+                        reponse = int.Parse(Console.ReadLine());
+                        correct = true;
+                         
                         // comparaison avec la bonne réponse
                         solution = val1 + val2;
                         if (reponse == solution)
@@ -84,11 +67,10 @@ namespace Calculs
                             Console.WriteLine("Faux : " + val1 + " + " + val2 + " = " + solution);
                         }
                     }
-                    else if( choix == 2)
+                    else
                     {
-                        // choix de la multiplication
-                        val1 = rand.Next(1, 10);
-                        val2 = rand.Next(1, 10);
+                        // choix de multiplication
+
                         // saisie de la réponse
                         Console.Write(val1 + " x " + val2 + " = ");
                         reponse = int.Parse(Console.ReadLine());
@@ -103,11 +85,7 @@ namespace Calculs
                             Console.WriteLine("Faux : " + val1 + " x " + val2 + " = " + solution);
                         }
                     }
-                    else
-                    {
-                        Console.WriteLine("Erreur de saisie");
-                    }
-                //}
+                }
             }
         }
     }
